@@ -10,7 +10,7 @@
   "dependencies": {
     "@vuelidate/core": "^2.0.3",
     "@vuelidate/validators": "^2.0.4",
-    "@willsofts/will-app": "^1.0.0",
+    "@willsofts/will-app": "^1.0.1",
     "@willsofts/will-control": "^1.0.15",
     "assert": "^2.1.0",
     "bigi": "^1.4.2",
