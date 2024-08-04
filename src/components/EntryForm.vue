@@ -147,11 +147,7 @@ import { DEFAULT_CONTENT_TYPE, getApiUrl }  from '@willsofts/will-app';
 import { startWaiting, stopWaiting, submitFailure, detectErrorResponse }  from '@willsofts/will-app';
 import { confirmUpdate, confirmSave, confirmDelete, successbox, serializeParameters } from '@willsofts/will-app';
 import { replaceString } from "@willsofts/will-app";
-import InputDate from '@/controls/InputDate.vue';
-import InputTime from '@/controls/InputTime.vue';
-import InputNumber from '@/controls/InputNumber.vue';
-import InputMoney from '@/controls/InputMoney.vue';
-import InputMask from '@/controls/InputMask.vue';
+import { InputDate, InputTime, InputNumber, InputMoney, InputMask } from '@willsofts/will-control';
 import DialogForm from './DialogForm.vue';
 
 const defaultData = {

@@ -12,7 +12,7 @@
 <script>
 import { ref } from 'vue';
 import $ from "jquery";
-import PageHeader from '@/controls/PageHeader.vue';
+import { PageHeader } from '@willsofts/will-control';
 import SearchForm from '@/components/SearchForm.vue';
 import EntryForm from '@/components/EntryForm.vue';
 import { getLabelModel } from "@willsofts/will-app";
