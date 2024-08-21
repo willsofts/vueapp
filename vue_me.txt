@@ -8,6 +8,8 @@ Setting
     - App.vue -> AppXXXX999.vue ex. AppDemo002.vue
     - main.js -> XXXX999.js ex. demo002.js (depend on 1 pages.index.entry)
         (change import App.vue -> AppXXXX999.vue too)
+3. edit .gitignore add output dir ex.
+    /demo002
 
 Examine
 1. start assure project
