@@ -10,6 +10,7 @@ Setting
         (change import App.vue -> AppXXXX999.vue too)
 3. edit .gitignore add output dir ex.
     /demo002
+4. change package.json name = demo002
 
 Examine
 1. start assure project
