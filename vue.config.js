@@ -1,4 +1,3 @@
-//const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const path = require("path");
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({  
@@ -8,7 +7,6 @@ module.exports = defineConfig({
     index: {
       entry: 'src/demo003.js',
       title: 'Sampling Information',
-      //filename: 'demo002.html', //this can override by setting indexPath
     }
   },
   transpileDependencies: true,
@@ -28,14 +26,5 @@ module.exports = defineConfig({
         modules: path.join(__dirname, "node_modules")
       }
     },
-    /*output: {
-      filename: 'js/demo002.[contenthash:8].js',
-      chunkFilename: 'js/demo002.[contenthash:8].js',
-    },
-    plugins: [
-      new MiniCssExtractPlugin({
-        filename: 'css/demo002.[contenthash:8].css',
-      }),
-    ],*/
   }    
 })
