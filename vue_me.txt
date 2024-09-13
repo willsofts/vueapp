@@ -22,3 +22,12 @@ In development mode you can setting environment before start up assure project
 set VALIDATE_TOKEN=false
 or
 export VALIDATE_TOKEN=false
+
+Testing
+This can run serve or using file protocol testing but it must build with environment variables,
+try to set below before startup build command.
+
+set VUE_APP_API_URL=http://127.0.0.1:8080
+set VUE_APP_BASE_URL=http://127.0.0.1:8080
+
+(this point to api from Examine #2)
