@@ -2,7 +2,7 @@
 <template>
   <div id="fswaitlayer" class="fa fa-spinner fa-spin"></div>
   <div class="pt-page pt-page-current pt-page-controller search-pager">
-    <PageHeader ref="pageHeader" :labels="labels" pid="demo002" version="1.0.0" showLanguage="true" @language-changed="changeLanguage" />
+    <PageHeader ref="pageHeader" :labels="labels" pid="demo003" version="1.0.0" showLanguage="true" @language-changed="changeLanguage" />
     <SearchForm ref="searchForm" :labels="labels" :dataCategory="dataCategory" @data-select="dataSelected" @data-insert="dataInsert" />
   </div>
   <teleport to="#modaldialog">
