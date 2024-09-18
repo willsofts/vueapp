@@ -38,13 +38,13 @@ In order to create new vue application using this prototype can do following ste
 1. vue.config.js change 
     - indexPath 
     - outputDir
-    - pages.index.entry -> XXXX999.js ex. demo002.js
+    - pages.index.entry -> xxxx999.js ex. demo002.js
     - pages.index.title
 2. src folder change
-    - App.vue -> AppXXXX999.vue ex. AppDemo002.vue
-    - main.js -> XXXX999.js ex. demo002.js (depend on 1 pages.index.entry)
-        (change import App.vue -> AppXXXX999.vue too)
-    - AppXXXX999.vue try change pid in PageHeader ex. pid="demo002"
+    - App.vue -> AppXxxx999.vue ex. AppDemo002.vue
+    - main.js -> xxxx999.js ex. demo002.js (depend on #1 pages.index.entry) \
+        and change import App.vue -> AppXxxx999.vue too
+    - AppXxxx999.vue try to change pid in PageHeader ex. pid="demo002"
 3. edit .gitignore add output dir ex.
     /demo002
 4. change package.json name = demo002
