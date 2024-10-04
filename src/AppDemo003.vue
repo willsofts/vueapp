@@ -15,7 +15,7 @@ import $ from "jquery";
 import { PageHeader } from '@willsofts/will-control';
 import SearchForm from '@/components/SearchForm.vue';
 import EntryForm from '@/components/EntryForm.vue';
-import { getLabelModel, getMultiLanguagesModel, getPermitModel } from "@willsofts/will-app";
+import { getLabelModel, getMultiLanguagesModel, getPermitModel, Permission } from "@willsofts/will-app";
 import { DEFAULT_CONTENT_TYPE, getDefaultLanguage, setDefaultLanguage, getApiUrl } from "@willsofts/will-app";
 import { startApplication, serializeParameters } from "@willsofts/will-app";
 
@@ -33,7 +33,8 @@ export default {
     let labels = ref(getLabelModel());
     let alreadyLoading = ref(false);
     const multiLanguages = ref(getMultiLanguagesModel());
-    return { multiLanguages, labels, dataCategory, dataChunk, alreadyLoading };
+    const permits = ref(new Permission());
+    return { multiLanguages, labels, dataCategory, dataChunk, alreadyLoading, permits };
   },
   mounted() {
     console.log("App: mounted ...");
@@ -49,8 +50,8 @@ export default {
       //try to find out parameters from url
       const searchParams = new URLSearchParams(window.location.href);
       console.log("param: authtoken=",searchParams.get("authtoken"),", language=",searchParams.get("language"));      
-      let permit = await getPermitModel("demo003");
-      console.log("permit:",permit,"can insert=",permit.canDo('insert'));
+      this.permits = await getPermitModel("demo003");
+      console.log("permits:",this.permits,"can insert=",this.permits.canDo('insert'));
     });
   },
   methods: {
