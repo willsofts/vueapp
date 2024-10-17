@@ -38,6 +38,7 @@ import { startWaiting, stopWaiting, submitFailure, serializeParameters }  from '
 import { Paging } from "@willsofts/will-app";
 import { InputDate, InputMask, DataTable, DataPaging } from '@willsofts/will-control';
 import Select2 from 'vue3-select2-component';
+import { KnMask } from "@willsofts/will-app";
 
 const defaultData = {
   account: '',
@@ -81,7 +82,8 @@ export default {
     //select2 data options must in format {id:?, text:?}
     //const statusOptions = props.dataCategory.marrystatus.map((item) => { return {id: item.key, text: item.text}});
     const dataset = ref({});
-    return { localData, tableSettings, pagingSettings, paging, filters, dataset };
+    const mask = new KnMask();
+    return { localData, tableSettings, pagingSettings, paging, filters, dataset, mask };
   },
   methods: {
     reset(newData) {
@@ -175,6 +177,8 @@ export default {
           //return this.labels.female_label; //"Female";
           return '<em class="fa fa-female"></em>';
         } else return data;  
+      } else if(field.name=="title") {
+        return this.mask.maskTail(data,5);
       }
       return this.$refs.dataTable.formatField(data,field);
     },    
