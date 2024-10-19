@@ -40,6 +40,7 @@ import { InputDate, InputMask, DataTable, DataPaging } from '@willsofts/will-con
 import Select2 from 'vue3-select2-component';
 import { KnMask } from "@willsofts/will-app";
 
+const APP_URL = "/api/demo002";
 const defaultData = {
   account: '',
   effectdate: "",
@@ -130,7 +131,7 @@ export default {
       let formdata = serializeParameters(jsondata,criterias);
       startWaiting();
       $.ajax({
-        url: getApiUrl()+"/api/demo002/collect",
+        url: getApiUrl()+APP_URL+"/collect",
         data: formdata.jsondata,
         headers : formdata.headers,
         type: "POST",

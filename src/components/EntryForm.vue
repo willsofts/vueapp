@@ -150,6 +150,7 @@ import { replaceString } from "@willsofts/will-app";
 import { InputDate, InputTime, InputNumber, InputMoney, InputMask } from '@willsofts/will-control';
 import DialogForm from './DialogForm.vue';
 
+const APP_URL = "/api/demo002";
 const defaultData = {
   account: '',
   amount: 0.00,
@@ -310,7 +311,7 @@ export default {
         let formdata = serializeParameters(jsondata,dataRecord);
         startWaiting();
         $.ajax({
-          url: getApiUrl()+"/api/demo002/insert",
+          url: getApiUrl()+APP_URL+"/insert",
           data: formdata.jsondata,
           headers : formdata.headers,
           type: "POST",
@@ -339,7 +340,7 @@ export default {
         let formdata = serializeParameters(jsondata,dataRecord);
         startWaiting();
         $.ajax({
-          url: getApiUrl()+"/api/demo002/update",
+          url: getApiUrl()+APP_URL+"/update",
           data: formdata.jsondata,
           headers : formdata.headers,
           type: "POST",
@@ -366,7 +367,7 @@ export default {
       let formdata = serializeParameters(jsondata,dataKeys);
       startWaiting();
       $.ajax({
-        url: getApiUrl()+"/api/demo002/retrieve",
+        url: getApiUrl()+APP_URL+"/retrieve",
         data: formdata.jsondata,
         headers : formdata.headers,
         type: "POST",
@@ -394,7 +395,7 @@ export default {
       let formdata = serializeParameters(jsondata,dataKeys);
       startWaiting();
       $.ajax({
-        url: getApiUrl()+"/api/demo002/remove",
+        url: getApiUrl()+APP_URL+"/remove",
         data: formdata.jsondata,
         headers : formdata.headers,
         type: "POST",
