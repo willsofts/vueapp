@@ -270,8 +270,9 @@ export default {
         else $("#"+input).trigger("focus"); //if using id
       }
     },
-    showDialog() {
+    showDialog(callback) {
       //$("#modaldialog_layer").modal("show");
+      if(callback) $(this.$refs.dialogForm.$el).on("shown.bs.modal",callback);
       $(this.$refs.dialogForm.$el).modal("show");
     },  
     hideDialog() {
@@ -288,7 +289,7 @@ export default {
     },
     startInsertRecord() {
       this.resetRecord();
-      this.showDialog();
+      this.showDialog(() => { this.$refs.account.focus(); });
     },
     startSaveRecord() {
       confirmSave(() => {
@@ -307,7 +308,6 @@ export default {
     },
     saveRecord(dataRecord) {
         let jsondata = {ajax: true};
-        //Object.assign(jsondata,dataRecord);
         let formdata = serializeParameters(jsondata,dataRecord);
         startWaiting();
         $.ajax({
@@ -328,15 +328,14 @@ export default {
             successbox(() => {
               //reset data for new record insert
               this.resetRecord();
-              this.$refs.account.focus();
+              setTimeout(() => { this.$refs.account.focus(); },100);
+              this.$emit('data-saved',dataRecord,data);
             });
-            this.$emit('data-saved',dataRecord,data);
           }
       });
     },
     updateRecord(dataRecord) {
         let jsondata = {ajax: true};
-        //Object.assign(jsondata,dataRecord);
         let formdata = serializeParameters(jsondata,dataRecord);
         startWaiting();
         $.ajax({
@@ -356,14 +355,13 @@ export default {
             if(detectErrorResponse(data)) return;
             successbox(() => {
               this.hideDialog();
+              this.$emit('data-updated',dataRecord,data);
             });
-            this.$emit('data-updated',dataRecord,data);
           }
       });
     },
     retrieveRecord(dataKeys) {
       let jsondata = {ajax: true};
-      //Object.assign(jsondata,dataKeys);
       let formdata = serializeParameters(jsondata,dataKeys);
       startWaiting();
       $.ajax({
@@ -384,14 +382,13 @@ export default {
             this.reset(data.body.dataset,{action:"edit"});
             this.v$.$reset();
             this.disabledKeyField = true;
-            this.showDialog();
+            this.showDialog(() => { this.$refs.amount.focus(); });
           }
         }
       });	
     },
     deleteRecord(dataKeys) {
       let jsondata = {ajax: true};
-      //Object.assign(jsondata,dataKeys);
       let formdata = serializeParameters(jsondata,dataKeys);
       startWaiting();
       $.ajax({
@@ -409,8 +406,9 @@ export default {
           stopWaiting();
           console.log("deleteRecord: success",data);
           if(detectErrorResponse(data)) return;
-          successbox();
-          this.$emit('data-deleted',dataKeys,data);
+          successbox(() => {
+            this.$emit('data-deleted',dataKeys,data);
+          });
         }
       });	
     },
