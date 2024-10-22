@@ -29,7 +29,7 @@
 	font-size: 55px;
 	font-weight: bold;
 	color: #00B17E;
-	text-shadow: 3px 7px 7px darkgrey;
+	text-shadow: 3px 7px 7px white;
 }
 #page_login_toplayer {	
 	background-image: -webkit-linear-gradient(white, #CFFAE7);

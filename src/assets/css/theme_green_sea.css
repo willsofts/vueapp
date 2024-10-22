@@ -16,6 +16,11 @@
 	background: #00B17E;
 	color: white;
 }
+.login_form button:focus,
+.login_form button:hover{
+	background: #00B17E;
+	color: white;
+}
 .login_form label {
 	color: #00B17E;
 	font-weight : bold;
@@ -162,3 +167,5 @@ table.partition-table { background-color: #00B17E; }
 .program-controlbar {
 	background-color: #00B17E; 
 }
+.pass-word { color: darkcyan; font-style: italic; }
+.go-word { color: lightseagreen; font-style: italic; }
