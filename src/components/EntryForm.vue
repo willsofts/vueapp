@@ -18,14 +18,14 @@
         <div class="row row-height">
           <div class="col-height col-md-4">
             <label for="amount">{{ labels.amount_label }}</label>
-            <div class="input-group" :class="{'has-error': v$.amount.$error}">
+            <div class="input-group has-validation" :class="{'has-error': v$.amount.$error}">
               <InputMoney ref="amount" v-model="localData.amount" id="amount" name="amount" decimal="2" /> 
             </div>
             <span v-if="v$.amount.$error" class="has-error">{{ v$.amount.$errors[0].$message }}</span>
           </div>
           <div class="col-height col-md-3">
             <label for="pincode">{{ labels.pincode_label }}</label>
-            <div class="input-group" :class="{'has-error': v$.pincode.$error}">
+            <div class="input-group has-validation" :class="{'has-error': v$.pincode.$error}">
               <InputMask ref="pincode" v-model="localData.pincode" id="pincode" name="pincode" picture="XXXXXXXX" /> 
             </div>
             <span v-if="v$.pincode.$error" class="has-error">{{ v$.pincode.$errors[0].$message }}</span>
@@ -40,15 +40,19 @@
         <div class="row row-height">
           <div class="col-height col-md-4">
             <label for="effectdate">{{ labels.effectdate_label }}</label>
-            <div class="input-group" :class="{'has-error': v$.effectdate.$error}">
+            <div class="input-group has-validation" :class="{'has-error': v$.effectdate.$error}">
+              <div class="date-control">
               <InputDate ref="effectdate" v-model="localData.effectdate" id="effectdate" name="effectdate" /> 
+              <label class="required">*</label>
+              </div>
             </div>
             <span v-if="v$.effectdate.$error" class="has-error">{{ v$.effectdate.$errors[0].$message }}</span>
           </div>
           <div class="col-height col-md-3">
             <label for="edittime">{{labels.effecttime_label}}</label>
-            <div class="input-group" :class="{'has-error': v$.effecttime.$error}">
+            <div class="input-group has-validation" :class="{'has-error': v$.effecttime.$error}">
               <InputTime ref="effecttime" v-model="localData.effecttime" id="effecttime" name="effecttime" /> 
+              <label class="required">*</label>
             </div>
             <span v-if="v$.effecttime.$error" class="has-error">{{ v$.effecttime.$errors[0].$message }}</span>
           </div>
@@ -58,7 +62,7 @@
             <label for="age">{{ labels.age_label }}</label>
           </div>
           <div class="col-height col-md-2">
-            <div class="input-group" :class="{'has-error': v$.age.$error}">
+            <div class="input-group has-validation" :class="{'has-error': v$.age.$error}">
               <InputNumber ref="age" v-model="localData.age" id="age" name="age" /> 
             </div>
             <span v-if="v$.age.$error" class="has-error">{{ v$.age.$errors[0].$message }}</span>
