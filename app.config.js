@@ -3,7 +3,7 @@ var appVariables = {
     BASE_URL: "http://localhost:8080",
 	IMG_URL: "http://localhost:8080",
     MULTI_LANGUAGES: ["EN","TH"],
-    META_INFO: { LOAD_LABEL: true }
+    META_INFO: { LOAD_LABEL: true, LOAD_MESSAGE_CODE: true }
 };
 function getAppConfigs() {
     return appVariables;
